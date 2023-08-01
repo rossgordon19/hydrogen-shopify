@@ -8,6 +8,10 @@
   --color-light: #fff;
 }
 
+* {
+  font-family: 'Bebas Neue', sans-serif;
+}
+
 img {
   border-radius: 4px;
 }
@@ -40,6 +44,7 @@ aside header {
 
 aside header h3 {
   margin: 0;
+  font-size: 22px;
 }
 
 aside header .close {
@@ -129,13 +134,14 @@ aside li {
 */
 .header {
   align-items: center;
-  background: #fff;
+  background: #b1a482;
   display: flex;
   height: var(--header-height);
   padding: 0 1rem;
   position: sticky;
   top: 0;
   z-index: 1;
+  font-size: 22px;
 }
 
 .header-menu-mobile-toggle {
@@ -148,6 +154,8 @@ aside li {
   display: flex;
   flex-direction: column;
   grid-gap: 1rem;
+  font-size: 22px;
+
 }
 
 .header-menu-desktop {

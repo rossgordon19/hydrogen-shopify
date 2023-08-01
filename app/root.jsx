@@ -17,6 +17,7 @@ import resetStyles from './styles/reset.css';
 import appStyles from './styles/app.css';
 import {Layout} from '~/components/Layout';
 import tailwindCss from './styles/tailwind.css';
+import PromoCode from './components/PromoCode';
 
 export function links() {
   return [
@@ -89,6 +90,7 @@ export default function App() {
         <Links />
       </head>
       <body>
+        <PromoCode />    
         <Layout {...data}>
           <Outlet />
         </Layout>
