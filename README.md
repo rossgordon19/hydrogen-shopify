@@ -16,12 +16,21 @@ Before you begin, ensure you have met the following requirements:
 - You have installed Node.js and npm.
 - You have a basic understanding of JavaScript, Hydrogen, Remix, and Tailwind CSS.
 
+<<<<<<< HEAD
 ### Wishful Thinking Storefront
 To install [Your Project Name], follow these steps:
+=======
+### Installing WT Store
+To install, follow these steps:
+>>>>>>> 52b0c7a13219b2e27bacdba8d33cd6e6e1fa2033
 
 1. Clone the repository to your local machine:
 ```bash
 git clone https://github.com/rossgordon19/hydrogen-shopify
+<<<<<<< HEAD
+=======
+```
+>>>>>>> 52b0c7a13219b2e27bacdba8d33cd6e6e1fa2033
 
 2. Navigate into the project directory:
 ```bash
@@ -46,7 +55,10 @@ npm run start
 ```
 
 Then, open your web browser and navigate to `http://localhost:3000` (or whatever port your server is running on) to view the project.
+<<<<<<< HEAD
 
 ## License
 This project uses the following license: [`<license_name>`](<link>).
 ```
+=======
+>>>>>>> 52b0c7a13219b2e27bacdba8d33cd6e6e1fa2033
