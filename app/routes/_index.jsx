@@ -3,7 +3,7 @@ import {Await, useLoaderData, Link} from '@remix-run/react';
 import {Suspense} from 'react';
 import {Image, Money, Video} from '@shopify/hydrogen';
 import Hero from '~/components/Hero';
-import VideoComponent from '~/components/Video';
+import VideoComponent from '~/components/About';
 
 export const meta = () => {
   return [{title: 'Hydrogen | Home'}];
@@ -54,7 +54,7 @@ function RecommendedProducts({products}) {
       <Suspense fallback={<div>Loading...</div>}>
         <Await resolve={products}>
           {({products}) => (
-            <div className="recommended-products-grid">
+            <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4">
               {products.nodes.map((product) => (
                 <Link
                   key={product.id}

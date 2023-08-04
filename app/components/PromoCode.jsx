@@ -2,10 +2,10 @@ import React from 'react';
 
 const PromoCode = () => {
   return (
-    <div className="w-full h-[30px] bg-black text-white flex items-center justify-center font-bold">
+    <div className="w-full h-[30px] bg-[#fff] text-black font-bold flex items-center justify-center">
       <h1 className="text-sm">
         Use Code{' '}
-        <span className="underline hover:text-[#b1a482] cursor-pointer">
+        <span className="underline hover:text-yellow-500 cursor-pointer">
           WISHFUL
         </span>{' '}
         and save 10%

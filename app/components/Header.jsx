@@ -76,7 +76,7 @@ function HeaderCtas({isLoggedIn, cart}) {
       <SearchToggle />
       <CartToggle cart={cart} />
     </nav>
-  );
+  ); 
 }
 
 function HeaderMenuMobileToggle() {
@@ -153,6 +153,6 @@ const FALLBACK_HEADER_MENU = {
 function activeLinkStyle({isActive, isPending}) {
   return {
     fontWeight: isActive ? 'bold' : '',
-    color: isPending ? 'grey' : 'black',
+    color: isPending ? 'white' : 'white',
   };
 }

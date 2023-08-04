@@ -64,7 +64,7 @@ aside header h2 {
 }
 
 aside main {
-  margin: 1rem;
+  /* margin: 1rem; */
 }
 
 aside p {
@@ -134,14 +134,19 @@ aside li {
 */
 .header {
   align-items: center;
-  background: #b1a482;
+  /* background: #b1a482; */
+  background: #000;
   display: flex;
   height: var(--header-height);
   padding: 0 1rem;
   position: sticky;
   top: 0;
-  z-index: 1;
+  z-index: 1000;
   font-size: 22px;
+}
+
+.header a {
+  color: #fff;
 }
 
 .header-menu-mobile-toggle {
@@ -153,9 +158,11 @@ aside li {
 .header-menu-mobile {
   display: flex;
   flex-direction: column;
-  grid-gap: 1rem;
   font-size: 22px;
-
+  background: #000;
+  color: #fff;
+  z-index: 11000;
+  height: 100vh;
 }
 
 .header-menu-desktop {
@@ -187,6 +194,7 @@ aside li {
 .footer {
   background: var(--color-dark);
   margin-top: auto;
+  color: #fff;
 }
 
 .footer-menu-missing {
@@ -204,6 +212,7 @@ aside li {
 .footer-menu a {
   color: var(--color-light);
 }
+
 
 /*
 * --------------------------------------------------
@@ -332,11 +341,12 @@ aside li {
 .recommended-products-grid {
   display: grid;
   grid-gap: 1.5rem;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(1, 1fr);
   @media (min-width: 45em) {
     grid-template-columns: repeat(4, 1fr);
   }
 }
+
 
 .recommended-product img {
   height: auto;
@@ -413,7 +423,7 @@ aside li {
 .product-main {
   align-self: start;
   position: sticky;
-  top: 6rem;
+  /* top: 6rem; */
 }
 
 .product-price-on-sale {
@@ -479,3 +489,4 @@ aside li {
 .account-logout {
   display: inline-block;
 }
+
