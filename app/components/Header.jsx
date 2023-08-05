@@ -81,11 +81,23 @@ function HeaderCtas({isLoggedIn, cart}) {
 
 function HeaderMenuMobileToggle() {
   return (
-    <a className="header-menu-mobile-toggle" href="#mobile-menu-aside">
+    <a 
+      className="header-menu-mobile-toggle" 
+      href="#mobile-menu-aside" 
+      onClick={() => {
+        const headerElem = document.querySelector('.header');
+        if (headerElem.style.display === 'none') {
+          headerElem.style.display = '';
+        } else {
+          headerElem.style.display = 'none';
+        }
+      }}
+    >
       <h3>☰</h3>
     </a>
   );
 }
+
 
 function SearchToggle() {
   return <a href="#search-aside">Search</a>;

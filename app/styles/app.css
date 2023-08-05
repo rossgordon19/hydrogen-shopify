@@ -16,6 +16,10 @@ img {
   border-radius: 4px;
 }
 
+#mobile-menu-aside:target ~ .header {
+  display: none;
+}
+
 /*
 * --------------------------------------------------
 * components/Aside
@@ -161,7 +165,7 @@ aside li {
   font-size: 22px;
   background: #000;
   color: #fff;
-  z-index: 11000;
+  z-index: 10;
   height: 100vh;
 }
 
@@ -212,7 +216,6 @@ aside li {
 .footer-menu a {
   color: var(--color-light);
 }
-
 
 /*
 * --------------------------------------------------
@@ -316,6 +319,16 @@ aside li {
 
 /*
 * --------------------------------------------------
+* Hero
+* --------------------------------------------------
+*/
+
+.hero-container {
+  z-index: 5; /* Or any number lower than your mobile menu's z-index */
+}
+
+/*
+* --------------------------------------------------
 * routes/__index
 * --------------------------------------------------
 */
@@ -346,7 +359,6 @@ aside li {
     grid-template-columns: repeat(4, 1fr);
   }
 }
-
 
 .recommended-product img {
   height: auto;
@@ -489,4 +501,3 @@ aside li {
 .account-logout {
   display: inline-block;
 }
-

@@ -6,7 +6,7 @@ import Hero from '~/components/Hero';
 import VideoComponent from '~/components/About';
 
 export const meta = () => {
-  return [{title: 'Hydrogen | Home'}];
+  return [{title: 'Wishful Thinking'}];
 };
 
 export async function loader({context}) {
@@ -49,34 +49,35 @@ function FeaturedCollection({collection}) {
 
 function RecommendedProducts({products}) {
   return (
-    <div className="recommended-products px-8">
-      <h2 className='text-center text-4xl'>Products</h2>
-      <Suspense fallback={<div>Loading...</div>}>
-        <Await resolve={products}>
-          {({products}) => (
-            <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4">
-              {products.nodes.map((product) => (
-                <Link
-                  key={product.id}
-                  className="recommended-product"
-                  to={`/products/${product.handle}`}
-                >
-                  <Image
-                    data={product.images.nodes[0]}
-                    aspectRatio="1/1"
-                    sizes="(min-width: 45em) 20vw, 50vw"
-                  />
-                  <h4>{product.title}</h4>
-                  <small>
-                    <Money data={product.priceRange.minVariantPrice} />
-                  </small>
-                </Link>
-              ))}
-            </div>
-          )}
-        </Await>
-      </Suspense>
-      <br />
+    <div className="flex items-center justify-center py-4 md:h-[75vh] recommended-products px-8">
+      <div className="w-full">
+        <h2 className="text-center text-4xl mb-4">Products</h2>
+        <Suspense fallback={<div>Loading...</div>}>
+          <Await resolve={products}>
+            {({products}) => (
+              <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4">
+                {products.nodes.map((product) => (
+                  <Link
+                    key={product.id}
+                    className="recommended-product"
+                    to={`/products/${product.handle}`}
+                  >
+                    <Image
+                      data={product.images.nodes[0]}
+                      aspectRatio="1/1"
+                      sizes="(min-width: 45em) 20vw, 50vw"
+                    />
+                    <h4>{product.title}</h4>
+                    <small>
+                      <Money data={product.priceRange.minVariantPrice} />
+                    </small>
+                  </Link>
+                ))}
+              </div>
+            )}
+          </Await>
+        </Suspense>
+      </div>
     </div>
   );
 }
