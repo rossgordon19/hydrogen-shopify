@@ -9,15 +9,11 @@
 }
 
 * {
-  font-family: 'Bebas Neue', sans-serif;
+  font-family: 'Dosis', sans-serif;
 }
 
 img {
   border-radius: 4px;
-}
-
-#mobile-menu-aside:target ~ .header {
-  display: none;
 }
 
 /*
@@ -138,7 +134,6 @@ aside li {
 */
 .header {
   align-items: center;
-  /* background: #b1a482; */
   background: #000;
   display: flex;
   height: var(--header-height);
@@ -147,6 +142,7 @@ aside li {
   top: 0;
   z-index: 1000;
   font-size: 22px;
+  text-transform: uppercase;
 }
 
 .header a {
@@ -157,6 +153,10 @@ aside li {
   @media (min-width: 48em) {
     display: none;
   }
+}
+
+.header.hidden {
+  display: none;
 }
 
 .header-menu-mobile {

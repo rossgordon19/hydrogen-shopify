@@ -1,5 +1,5 @@
 import {Await, NavLink, useMatches} from '@remix-run/react';
-import {Suspense} from 'react';
+import {Suspense, useEffect} from 'react';
 
 export function Header({header, isLoggedIn, cart}) {
   const {shop, menu} = header;
@@ -22,7 +22,13 @@ export function HeaderMenu({menu, viewport}) {
   function closeAside(event) {
     if (viewport === 'mobile') {
       event.preventDefault();
-      window.location.href = event.currentTarget.href;
+
+      // Query the header element and set its display to an empty string
+      const headerElem = document.querySelector('.header');
+      headerElem.style.display = '';
+
+      // Redirect to the homepage without any hash
+      window.location.href = '/';
     }
   }
 
@@ -76,28 +82,48 @@ function HeaderCtas({isLoggedIn, cart}) {
       <SearchToggle />
       <CartToggle cart={cart} />
     </nav>
-  ); 
+  );
 }
 
 function HeaderMenuMobileToggle() {
+  const handleToggle = () => {
+    const headerElem = document.querySelector('.header');
+    if (window.location.hash === '#mobile-menu-aside') {
+      headerElem.style.display = 'none';
+    } else {
+      headerElem.style.display = '';
+    }
+  };
+
+  // This function will be called when the component mounts
+  const handleInitialDisplay = () => {
+    if (window.location.hash === '#') {
+      const headerElem = document.querySelector('.header');
+      headerElem.style.display = '';
+    }
+  };
+
+  useEffect(() => {
+    // Call the function to handle the initial display
+    handleInitialDisplay();
+
+    // Bind the handleToggle function to the hashchange event
+    window.addEventListener('hashchange', handleToggle);
+
+    // Clean up the event listener when the component is unmounted
+    return () => window.removeEventListener('hashchange', handleToggle);
+  }, []);
+
   return (
-    <a 
-      className="header-menu-mobile-toggle" 
-      href="#mobile-menu-aside" 
-      onClick={() => {
-        const headerElem = document.querySelector('.header');
-        if (headerElem.style.display === 'none') {
-          headerElem.style.display = '';
-        } else {
-          headerElem.style.display = 'none';
-        }
-      }}
+    <a
+      className="header-menu-mobile-toggle"
+      href="#mobile-menu-aside"
+      onClick={handleToggle}
     >
       <h3>☰</h3>
     </a>
   );
 }
-
 
 function SearchToggle() {
   return <a href="#search-aside">Search</a>;
