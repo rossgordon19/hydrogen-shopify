@@ -12,7 +12,7 @@ import {
   ScrollRestoration,
   useLoaderData,
 } from '@remix-run/react';
-import favicon from '../public/favicon.svg';
+import favicon from '../public/favicon.ico';
 import resetStyles from './styles/reset.css';
 import appStyles from './styles/app.css';
 import {Layout} from '~/components/Layout';
