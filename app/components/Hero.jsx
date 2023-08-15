@@ -16,7 +16,7 @@ const Hero = () => {
         <source src={Sky} type="video/mp4" />
       </video>
       <div className="flex flex-col items-center justify-center z-10 h-full w-full lg:justify-center">
-        <img className="object-contain mb-4 lg:mb-8" src={Logo} alt="Logo" />
+        <img className="object-contain mb-4 lg:mb-[100px]" src={Logo} alt="Logo" />
         <Link to="products" smooth={true} duration={500}>
           <button className="bg-white sm:hover:bg-white text-gray-800 font-bold py-3 px-5 text-lg sm:py-3 sm:px-6 sm:text-xl md:py-3 md:px-6 md:text-xl lg:py-4 lg:px-8 lg:text-2xl xl:py-4 xl:px-8 xl:text-2xl rounded-full">
             Fall 23 Collection
