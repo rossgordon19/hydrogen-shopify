@@ -49,7 +49,7 @@ function FeaturedCollection({collection}) {
 
 function RecommendedProducts({products}) {
   return (
-    <div className="flex items-center justify-center py-4 md:h-[75vh] recommended-products px-8">
+    <div id="products" className="flex items-center justify-center py-4 md:h-[75vh] recommended-products px-8">
       <div className="w-full">
         <h2 className="text-center text-4xl mb-4">Products</h2>
         <Suspense fallback={<div>Loading...</div>}>
