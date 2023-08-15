@@ -170,10 +170,9 @@ aside li {
 }
 
 .header-menu-desktop {
-  display: none;
-  grid-gap: 1rem;
+  display: none; /* Hide by default */
   @media (min-width: 45em) {
-    display: flex;
+    display: flex; /* Show on larger viewports */
     grid-gap: 1rem;
     margin-left: 3rem;
   }
@@ -188,6 +187,9 @@ aside li {
   display: flex;
   grid-gap: 1rem;
   margin-left: auto;
+  @media (max-width: 48em) { /* Hide extra CTAs on small viewports */
+    display: none;
+  }
 }
 
 /*
