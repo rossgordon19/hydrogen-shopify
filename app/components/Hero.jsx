@@ -22,7 +22,7 @@ const Hero = () => {
           {/* Negative margin */}
           <Link to="products" smooth={true} duration={500}>
             <button className="bg-white text-gray-800 font-bold py-3 px-5 text-lg sm:py-3 sm:px-6 sm:text-xl md:py-3 md:px-6 md:text-xl lg:py-4 lg:px-8 lg:text-2xl xl:py-4 xl:px-8 xl:text-2xl rounded-full">
-              Fall 23 Collection
+              End of Summer 23
             </button>
           </Link>
         </div>
