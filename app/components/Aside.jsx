@@ -20,7 +20,7 @@ export function Aside({children, heading, id = 'aside'}) {
       />
       <aside>
         <header>
-          <h3>{heading}</h3>
+          <h3 className='ml-4'>{heading}</h3>
           <CloseAside />
         </header>
         <main>{children}</main>

@@ -10,7 +10,7 @@ const Footer2 = () => {
         <div className="socials flex flex-cols-2 mx-auto justify-between p-6 space-x-4">
           {/* Instagram */}
           <a
-            className="text-3xl text-white hover:text-[#b1a482]"
+            className="text-3xl text-white hover:text-[#1762af]"
             href="https://instagram.com/wishflthinkn?"
             target="_blank"
           >
@@ -19,7 +19,7 @@ const Footer2 = () => {
 
           {/* Facebook */}
           <a
-            className="text-3xl text-white hover:text-[#b1a482]"
+            className="text-3xl text-white hover:text-[#1762af]"
             href="https://facebook.com/"
             target="_blank"
           >
@@ -28,7 +28,7 @@ const Footer2 = () => {
 
           {/* Twitter */}
           <a
-            className="text-3xl text-white hover:text-[#b1a482]"
+            className="text-3xl text-white hover:text-[#1762af]"
             href="https://www.twitter.com/WishflThinkn"
             target="_blank"
           >

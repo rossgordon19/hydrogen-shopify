@@ -22,12 +22,8 @@ export function HeaderMenu({menu, viewport}) {
   function closeAside(event) {
     if (viewport === 'mobile') {
       event.preventDefault();
-
-      // Query the header element and set its display to an empty string
       const headerElem = document.querySelector('.header');
       headerElem.style.display = '';
-
-      // Redirect to the homepage without any hash
       window.location.href = '/';
     }
   }
@@ -47,8 +43,6 @@ export function HeaderMenu({menu, viewport}) {
       )}
       {(menu || FALLBACK_HEADER_MENU).items.map((item) => {
         if (!item.url) return null;
-
-        // if the url is internal, we strip the domain
         const url =
           item.url.includes('myshopify.com') ||
           item.url.includes(publicStoreDomain)
@@ -76,10 +70,6 @@ function HeaderCtas({isLoggedIn, cart}) {
   return (
     <nav className="header-ctas" role="navigation">
       <HeaderMenuMobileToggle />
-      <NavLink prefetch="intent" to="/account" style={activeLinkStyle}>
-        {isLoggedIn ? 'Account' : 'Sign in'}
-      </NavLink>
-      <SearchToggle />
       <CartToggle cart={cart} />
     </nav>
   );
@@ -95,7 +85,6 @@ function HeaderMenuMobileToggle() {
     }
   };
 
-  // This function will be called when the component mounts
   const handleInitialDisplay = () => {
     if (window.location.hash === '#') {
       const headerElem = document.querySelector('.header');
@@ -104,13 +93,8 @@ function HeaderMenuMobileToggle() {
   };
 
   useEffect(() => {
-    // Call the function to handle the initial display
     handleInitialDisplay();
-
-    // Bind the handleToggle function to the hashchange event
     window.addEventListener('hashchange', handleToggle);
-
-    // Clean up the event listener when the component is unmounted
     return () => window.removeEventListener('hashchange', handleToggle);
   }, []);
 
@@ -123,10 +107,6 @@ function HeaderMenuMobileToggle() {
       <h3>☰</h3>
     </a>
   );
-}
-
-function SearchToggle() {
-  return <a href="#search-aside">Search</a>;
 }
 
 function CartBadge({count}) {

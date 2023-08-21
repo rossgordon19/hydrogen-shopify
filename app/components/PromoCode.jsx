@@ -1,11 +1,18 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 const PromoCode = () => {
+  const [isCopied, setIsCopied] = useState(false);
+
   const handleCopyToClipboard = () => {
     navigator.clipboard
       .writeText('WISHFUL')
       .then(() => {
         console.log('Text copied to clipboard');
+        setIsCopied(true);
+        // Hide the tooltip after 1.5 seconds
+        setTimeout(() => {
+          setIsCopied(false);
+        }, 1500);
       })
       .catch((err) => {
         console.error('Unable to copy text: ', err);
@@ -17,11 +24,16 @@ const PromoCode = () => {
       <h1 className="text-sm">
         Use Code{' '}
         <span
-          className="underline hover:text-[#b1a482] cursor-pointer"
+          className="underline hover:text-[#1762af] cursor-pointer relative"
           onClick={handleCopyToClipboard}
         >
           WISHFUL
-        </span>{' '}
+          {isCopied && (
+            <span className="absolute top-[-5px] left-0 bg-gray-200 text-xs px-2 py-1 rounded">
+              Copied!
+            </span>
+          )}
+        </span>
         and save 10%
       </h1>
     </div>
