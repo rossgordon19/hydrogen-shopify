@@ -1,5 +1,6 @@
 import {Await, NavLink, useMatches} from '@remix-run/react';
 import {Suspense, useEffect} from 'react';
+import {Link} from 'react-scroll';
 
 export function Header({header, isLoggedIn, cart}) {
   const {shop, menu} = header;
@@ -28,20 +29,18 @@ export function HeaderMenu({menu, viewport}) {
     }
   }
 
+  const filteredMenuItems = (menu || FALLBACK_HEADER_MENU).items.filter(
+    (item) => !['Home', 'Catalog', 'Contact'].includes(item.title),
+  );
+
   return (
     <nav className={className} role="navigation">
       {viewport === 'mobile' && (
-        <NavLink
-          end
-          onClick={closeAside}
-          prefetch="intent"
-          style={activeLinkStyle}
-          to="/"
-        >
-          Home
-        </NavLink>
+        <Link to="products" smooth={true} duration={500}>
+          <NavLink>Products</NavLink>
+        </Link>
       )}
-      {(menu || FALLBACK_HEADER_MENU).items.map((item) => {
+      {filteredMenuItems.map((item) => {
         if (!item.url) return null;
         const url =
           item.url.includes('myshopify.com') ||
@@ -62,6 +61,11 @@ export function HeaderMenu({menu, viewport}) {
           </NavLink>
         );
       })}
+      {viewport !== 'mobile' && (
+        <Link to="products" smooth={true} duration={500}>
+          <NavLink>Collections</NavLink>
+        </Link>
+      )}
     </nav>
   );
 }

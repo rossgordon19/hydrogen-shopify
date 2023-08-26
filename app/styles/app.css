@@ -159,13 +159,18 @@ aside li {
 .header-menu-mobile {
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Center vertically */
-  align-items: center; /* Center horizontally */
+  justify-content: center;
+  align-items: center;
   font-size: 22px;
   background: #000;
   color: #fff;
   height: 100vh;
   z-index: 10;
+}
+
+.header-menu-mobile a.active {
+  color: white;
+  font-size: 36px;
 }
 
 .header-menu-desktop {
@@ -323,7 +328,7 @@ aside li {
 */
 
 .hero-container {
-  z-index: 5; /* Or any number lower than your mobile menu's z-index */
+  z-index: 5;
 }
 
 /*

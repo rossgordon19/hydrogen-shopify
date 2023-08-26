@@ -4,6 +4,8 @@ import {Suspense} from 'react';
 import {Image, Money, Video} from '@shopify/hydrogen';
 import Hero from '~/components/Hero';
 import VideoComponent from '~/components/About';
+import Welcome from '~/components/Welcome';
+
 
 export const meta = () => {
   return [{title: 'Wishful Thinking'}];
@@ -24,6 +26,7 @@ export default function Homepage() {
     <div className="home">
       <Hero />
       <VideoComponent />
+      <Welcome />
       <RecommendedProducts products={data.recommendedProducts} />
       {/* {/* <FeaturedCollection collection={data.featuredCollection} /> */}
     </div>
