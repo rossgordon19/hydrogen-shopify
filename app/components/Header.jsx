@@ -1,6 +1,6 @@
 import {Await, NavLink, useMatches} from '@remix-run/react';
 import {Suspense, useEffect} from 'react';
-import {Link} from 'react-scroll';
+import { Link } from 'react-scroll';
 
 export function Header({header, isLoggedIn, cart}) {
   const {shop, menu} = header;
@@ -21,23 +21,29 @@ export function HeaderMenu({menu, viewport}) {
   const className = `header-menu-${viewport}`;
 
   function closeAside(event) {
+    console.log("Close aside called");
+    console.log("Viewport:", viewport);
     if (viewport === 'mobile') {
       event.preventDefault();
       const headerElem = document.querySelector('.header');
-      headerElem.style.display = '';
-      window.location.href = '/';
+      console.log("Header element:", headerElem);
+      if(headerElem) {
+        headerElem.style.display = 'none';
+      } else {
+        console.log("Header element not found.");
+      }
     }
   }
 
-  const filteredMenuItems = (menu || FALLBACK_HEADER_MENU).items.filter(
-    (item) => !['Home', 'Catalog', 'Contact'].includes(item.title),
+  const filteredMenuItems = menu.items.filter(
+    (item) => !['Home', 'Catalog', 'Contact'].includes(item.title)
   );
 
   return (
     <nav className={className} role="navigation">
       {viewport === 'mobile' && (
         <Link to="products" smooth={true} duration={500}>
-          <NavLink>Products</NavLink>
+          <NavLink>End of Summer Collection</NavLink>
         </Link>
       )}
       {filteredMenuItems.map((item) => {
@@ -129,48 +135,6 @@ function CartToggle({cart}) {
     </Suspense>
   );
 }
-
-const FALLBACK_HEADER_MENU = {
-  id: 'gid://shopify/Menu/199655587896',
-  items: [
-    {
-      id: 'gid://shopify/MenuItem/461609500728',
-      resourceId: null,
-      tags: [],
-      title: 'Collections',
-      type: 'HTTP',
-      url: '/collections',
-      items: [],
-    },
-    {
-      id: 'gid://shopify/MenuItem/461609533496',
-      resourceId: null,
-      tags: [],
-      title: 'Blog',
-      type: 'HTTP',
-      url: '/blogs/journal',
-      items: [],
-    },
-    {
-      id: 'gid://shopify/MenuItem/461609566264',
-      resourceId: null,
-      tags: [],
-      title: 'Policies',
-      type: 'HTTP',
-      url: '/policies',
-      items: [],
-    },
-    {
-      id: 'gid://shopify/MenuItem/461609599032',
-      resourceId: 'gid://shopify/Page/92591030328',
-      tags: [],
-      title: 'About',
-      type: 'PAGE',
-      url: '/pages/about',
-      items: [],
-    },
-  ],
-};
 
 function activeLinkStyle({isActive, isPending}) {
   return {

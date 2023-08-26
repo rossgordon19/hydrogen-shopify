@@ -26,9 +26,10 @@ const Welcome = () => {
           </video>
         </div>
       </div>
-      {/* Optional content overlaying the video */}
       <div className="absolute inset-x-0 top-0 flex flex-col items-center justify-start z-10 text-white text-center space-y-4 pt-4">
-        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-bold mt-[150px] md:mt-5">End of Summer 23 Collection</h1>
+        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mt-4 sm:mt-8 md:mt-12 lg:mt-16 xl:mt-20">
+          End of Summer 23 Collection
+        </h1>
       </div>
     </div>
   );

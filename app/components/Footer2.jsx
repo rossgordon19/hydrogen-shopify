@@ -1,3 +1,7 @@
+import React from 'react';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faEnvelope} from '@fortawesome/free-regular-svg-icons';
+
 const navigation = [
   {
     name: 'Instagram',
@@ -46,15 +50,31 @@ export default function Footer2() {
               key={item.name}
               href={item.href}
               target="_blank"
+              rel="noopener noreferrer"
               className="text-white hover:text-gray-500"
             >
               <span className="sr-only">{item.name}</span>
               <item.icon className="h-6 w-6" aria-hidden="true" />
             </a>
           ))}
+          <a
+            href="mailto:markellcooley@gmail.com
+            "
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white hover:text-gray-500"
+          >
+            <span className="sr-only">Email</span>
+            <FontAwesomeIcon
+              icon={faEnvelope}
+              size="xs"
+              className="h-6 w-6"
+              aria-hidden="true"
+            />
+          </a>
         </div>
         <div className="mt-8 md:order-1 md:mt-0">
-          <p className="text-center text-xs leading-5 text-white">
+          <p className="text-center text-sm leading-5 text-white">
             &copy; 2023 Wishful Thinking, All rights reserved.
           </p>
         </div>
