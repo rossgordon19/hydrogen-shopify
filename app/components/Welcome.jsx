@@ -11,7 +11,7 @@ const Welcome = () => {
   }, []);
 
   return (
-    <div className="relative w-full h-screen flex items-center justify-center overflow-hidden bg-black">
+    <div className="relative w-full h-[50vh] md:h-screen flex items-center justify-center overflow-hidden bg-black">
       <div className="absolute inset-0 flex items-center justify-center">
         <div className="w-full h-full relative">
           <video
@@ -27,7 +27,7 @@ const Welcome = () => {
         </div>
       </div>
       <div className="absolute inset-x-0 top-0 flex flex-col items-center justify-start z-10 text-white text-center space-y-4 pt-4">
-        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mt-4 sm:mt-8 md:mt-12 lg:mt-16 xl:mt-20">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold">
           End of Summer 23 Collection
         </h1>
       </div>

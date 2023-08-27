@@ -199,15 +199,16 @@ function CartLinePrice({line, priceType = 'regular', ...passthroughProps}) {
 
 export function CartEmpty({hidden = false, layout = 'aside'}) {
   return (
-    <div hidden={hidden}>
+    <div hidden={hidden} className='px-4'>
       <br />
-      <p>
+      <p className="px-4"> {/* Added padding to the left and right */}
         Looks like you haven&rsquo;t added anything yet, let&rsquo;s get you
         started!
       </p>
       <br />
       <Link
         to="/"
+        className="px-4" {/* Added padding to the left and right */}
         onClick={() => {
           if (layout === 'aside') {
             window.location.href = '/';
