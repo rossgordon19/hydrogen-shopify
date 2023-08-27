@@ -207,10 +207,10 @@ export function CartEmpty({hidden = false, layout = 'aside'}) {
       </p>
       <br />
       <Link
-        to="/collections"
+        to="/"
         onClick={() => {
           if (layout === 'aside') {
-            window.location.href = '/collections';
+            window.location.href = '/';
           }
         }}
       >

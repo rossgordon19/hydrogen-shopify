@@ -275,6 +275,10 @@ aside li {
   align-items: center;
   display: flex;
 }
+
+#cart-aside {
+  z-index: 1001; /* or any number higher than your header's z-index */
+}
 /*
 * --------------------------------------------------
 * components/Search

@@ -21,16 +21,12 @@ export function HeaderMenu({menu, viewport}) {
   const className = `header-menu-${viewport}`;
 
   function closeAside(event) {
-    console.log("Close aside called");
-    console.log("Viewport:", viewport);
     if (viewport === 'mobile') {
       event.preventDefault();
       const headerElem = document.querySelector('.header');
-      console.log("Header element:", headerElem);
       if(headerElem) {
         headerElem.style.display = 'none';
       } else {
-        console.log("Header element not found.");
       }
     }
   }
@@ -43,7 +39,7 @@ export function HeaderMenu({menu, viewport}) {
     <nav className={className} role="navigation">
       {viewport === 'mobile' && (
         <Link to="products" smooth={true} duration={500}>
-          <NavLink>End of Summer Collection</NavLink>
+          <NavLink>Collection</NavLink>
         </Link>
       )}
       {filteredMenuItems.map((item) => {
@@ -69,7 +65,7 @@ export function HeaderMenu({menu, viewport}) {
       })}
       {viewport !== 'mobile' && (
         <Link to="products" smooth={true} duration={500}>
-          <NavLink>Collections</NavLink>
+          <NavLink>Collection</NavLink>
         </Link>
       )}
     </nav>
