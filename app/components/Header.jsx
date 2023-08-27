@@ -84,17 +84,22 @@ function HeaderCtas({isLoggedIn, cart}) {
 function HeaderMenuMobileToggle() {
   const handleToggle = () => {
     const headerElem = document.querySelector('.header');
+    const bodyElem = document.querySelector('body');
     if (window.location.hash === '#mobile-menu-aside') {
       headerElem.style.display = 'none';
+      bodyElem.style.overflow = 'hidden'; // Disable scrolling
     } else {
       headerElem.style.display = '';
+      bodyElem.style.overflow = ''; // Enable scrolling
     }
   };
 
   const handleInitialDisplay = () => {
     if (window.location.hash === '#') {
       const headerElem = document.querySelector('.header');
+      const bodyElem = document.querySelector('body');
       headerElem.style.display = '';
+      bodyElem.style.overflow = ''; // Enable scrolling
     }
   };
 
