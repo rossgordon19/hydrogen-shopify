@@ -20,15 +20,8 @@ export function HeaderMenu({menu, viewport}) {
   const publicStoreDomain = root?.data?.publicStoreDomain;
   const className = `header-menu-${viewport}`;
 
-  function closeAside(event) {
-    if (viewport === 'mobile') {
-      event.preventDefault();
-      const headerElem = document.querySelector('.header');
-      if(headerElem) {
-        headerElem.style.display = 'none';
-      } else {
-      }
-    }
+  function closeMobileMenu() {
+    window.location.hash = ''; // Reset the hash to close the aside
   }
 
   const filteredMenuItems = menu.items.filter(
@@ -38,8 +31,8 @@ export function HeaderMenu({menu, viewport}) {
   return (
     <nav className={className} role="navigation">
       {viewport === 'mobile' && (
-        <Link to="products" smooth={true} duration={500}>
-          <NavLink>Collection</NavLink>
+        <Link to="products" smooth={true} duration={500} onClick={closeMobileMenu}>
+          <NavLink>End of Summer '23</NavLink>
         </Link>
       )}
       {filteredMenuItems.map((item) => {
@@ -54,7 +47,7 @@ export function HeaderMenu({menu, viewport}) {
             className="header-menu-item"
             end
             key={item.id}
-            onClick={closeAside}
+            onClick={closeMobileMenu}
             prefetch="intent"
             style={activeLinkStyle}
             to={url}
@@ -84,22 +77,17 @@ function HeaderCtas({isLoggedIn, cart}) {
 function HeaderMenuMobileToggle() {
   const handleToggle = () => {
     const headerElem = document.querySelector('.header');
-    const bodyElem = document.querySelector('body');
     if (window.location.hash === '#mobile-menu-aside') {
       headerElem.style.display = 'none';
-      bodyElem.style.overflow = 'hidden'; // Disable scrolling
     } else {
       headerElem.style.display = '';
-      bodyElem.style.overflow = ''; // Enable scrolling
     }
   };
 
   const handleInitialDisplay = () => {
     if (window.location.hash === '#') {
       const headerElem = document.querySelector('.header');
-      const bodyElem = document.querySelector('body');
       headerElem.style.display = '';
-      bodyElem.style.overflow = ''; // Enable scrolling
     }
   };
 
