@@ -25,7 +25,7 @@ export function Layout({cart, children = null, footer, header, isLoggedIn}) {
 function CartAside({cart}) {
   return (
     <Aside id="cart-aside" heading="CART">
-      <Suspense fallback={<p>Loading cart ...</p>}>
+      <Suspense fallback={<p className='px-8'>Loading cart ...</p>}>
         <Await resolve={cart}>
           {(cart) => {
             return <CartMain cart={cart} layout="aside" />;
