@@ -1,11 +1,33 @@
+import { useState } from 'react';
 import {Await, NavLink, useMatches} from '@remix-run/react';
 import {Suspense, useEffect} from 'react';
 import { Link } from 'react-scroll';
 
 export function Header({header, isLoggedIn, cart}) {
   const {shop, menu} = header;
+  const [menuHeightClass, setMenuHeightClass] = useState('');
+
+  useEffect(() => {
+    const handleHashChange = () => {
+      if (window.location.hash === '#mobile-menu-aside') {
+        setMenuHeightClass('h-[calc(100%+50px)]');
+        document.body.style.overflow = 'hidden'; // Prevent scrolling
+      } else {
+        setMenuHeightClass('');
+        document.body.style.overflow = 'auto'; // Allow scrolling
+      }
+    };
+
+    handleHashChange(); // Call once for the initial value
+    window.addEventListener('hashchange', handleHashChange);
+
+    return () => {
+      window.removeEventListener('hashchange', handleHashChange);
+    };
+  }, []);
+
   return (
-    <header className="header">
+    <header className={`header ${menuHeightClass}`}>
       <NavLink prefetch="intent" to="/" style={activeLinkStyle} end>
         <strong>{shop.name}</strong>
       </NavLink>
