@@ -10,7 +10,7 @@ export function Header({header, isLoggedIn, cart}) {
   useEffect(() => {
     const handleHashChange = () => {
       if (window.location.hash === '#mobile-menu-aside') {
-        setMenuHeightClass('h-[calc(100%+50px)]');
+        setMenuHeightClass('h-[calc(100%+75px)]');
         document.body.style.overflow = 'hidden'; // Prevent scrolling
       } else {
         setMenuHeightClass('');
