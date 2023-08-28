@@ -37,7 +37,7 @@ function CartLines({lines, layout}) {
   if (!lines) return null;
 
   return (
-    <div aria-labelledby="cart-lines">
+    <div aria-labelledby="cart-lines" className="px-8">
       <ul>
         {lines.nodes.map((line) => (
           <CartLineItem key={line.id} line={line} layout={layout} />
@@ -53,7 +53,7 @@ function CartLineItem({layout, line}) {
   const lineItemUrl = useVariantUrl(product.handle, selectedOptions);
 
   return (
-    <li key={id} className="cart-line">
+    <li key={id} className="cart-line px-8">
       {image && (
         <Image
           alt={title}
@@ -111,7 +111,7 @@ function CartCheckoutActions({checkoutUrl}) {
 
 export function CartSummary({cost, layout, children = null}) {
   const className =
-    layout === 'page' ? 'cart-summary-page' : 'cart-summary-aside';
+    layout === 'page' ? 'cart-summary-page px-8' : 'cart-summary-aside px-8';
 
   return (
     <div aria-labelledby="cart-summary" className={className}>

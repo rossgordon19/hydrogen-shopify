@@ -443,6 +443,7 @@ aside li {
 .product-main {
   align-self: start;
   position: sticky;
+  padding: 32px;
   /* top: 6rem; */
 }
 

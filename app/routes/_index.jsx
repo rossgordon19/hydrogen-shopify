@@ -6,7 +6,6 @@ import Hero from '~/components/Hero';
 import VideoComponent from '~/components/About';
 import Welcome from '~/components/Welcome';
 
-
 export const meta = () => {
   return [{title: 'Wishful Thinking'}];
 };
@@ -28,7 +27,6 @@ export default function Homepage() {
       <VideoComponent />
       <Welcome />
       <RecommendedProducts products={data.recommendedProducts} />
-      {/* {/* <FeaturedCollection collection={data.featuredCollection} /> */}
     </div>
   );
 }
@@ -52,7 +50,10 @@ function FeaturedCollection({collection}) {
 
 function RecommendedProducts({products}) {
   return (
-    <div id="products" className="flex items-center justify-center py-4 md:h-[75vh] recommended-products px-8">
+    <div
+      id="products"
+      className="flex items-center justify-center py-4 sm:h-[320vh] md:h-[125vh] recommended-products px-8"
+    >
       <div className="w-full">
         <h2 className="text-center text-4xl mb-4">Products</h2>
         <Suspense fallback={<div>Loading...</div>}>
@@ -131,7 +132,7 @@ const RECOMMENDED_PRODUCTS_QUERY = `#graphql
   }
   query RecommendedProducts ($country: CountryCode, $language: LanguageCode)
     @inContext(country: $country, language: $language) {
-    products(first: 4, sortKey: UPDATED_AT, reverse: true) {
+    products(first: 8, sortKey: UPDATED_AT, reverse: true) {
       nodes {
         ...RecommendedProduct
       }
