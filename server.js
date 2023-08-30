@@ -39,12 +39,13 @@ export default {
         cache,
         waitUntil,
         i18n: getLocaleFromRequest(request),
-        publicStorefrontToken: env.PUBLIC_STOREFRONT_API_TOKEN,
+        publicStorefrontToken: env.SHOPIFY_STOREFRONT_ACCESS_TOKEN,
         privateStorefrontToken: env.PRIVATE_STOREFRONT_API_TOKEN,
         storeDomain: env.PUBLIC_STORE_DOMAIN,
         storefrontId: env.PUBLIC_STOREFRONT_ID,
         storefrontHeaders: getStorefrontHeaders(request),
       });
+      
 
       /*
        * Create a cart handler that will be used to

@@ -1,4 +1,4 @@
-import {Suspense} from 'react';
+import {Suspense, useState} from 'react';
 import {defer, redirect} from '@shopify/remix-oxygen';
 import {Await, Link, useLoaderData} from '@remix-run/react';
 
@@ -12,7 +12,7 @@ import {
 import {getVariantUrl} from '~/utils';
 
 export const meta = ({data}) => {
-  return [{title: `Hydrogen | ${data.product.title}`}];
+  return [{title: `Wishful Thinking | ${data.product.title}`}];
 };
 
 export async function loader({params, request, context}) {
@@ -89,15 +89,52 @@ function redirectToFirstVariant({product, request}) {
 
 export default function Product() {
   const {product, variants} = useLoaderData();
-  const {selectedVariant} = product;
+  const {selectedVariant, images} = product;
+  const [mainImage, setMainImage] = useState(images.edges[0]?.node);
+
   return (
     <div className="product">
-      <ProductImage image={selectedVariant?.image} />
+      <ProductGallery
+        images={images.edges}
+        mainImage={mainImage}
+        setMainImage={setMainImage}
+      />
       <ProductMain
         selectedVariant={selectedVariant}
         product={product}
         variants={variants}
       />
+    </div>
+  );
+}
+
+function ProductGallery({images, mainImage, setMainImage}) {
+  return (
+    <div className="product-gallery">
+      <div className="main-image">
+        <Image
+          alt={mainImage.altText || 'Product Image'}
+          aspectRatio="1/1"
+          data={mainImage}
+          sizes="(min-width: 45em) 50vw, 100vw"
+        />
+      </div>
+      <div className="thumbnails">
+        {images.map(({node}) => (
+          <div
+            key={node.id}
+            className="thumbnail"
+            onClick={() => setMainImage(node)}
+          >
+            <Image
+              alt={node.altText || 'Thumbnail'}
+              aspectRatio="1/1"
+              data={node}
+              sizes="(min-width: 45em) 10vw, 20vw"
+            />
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
@@ -267,8 +304,6 @@ function AddToCartButton({analytics, children, disabled, lines, onClick}) {
   );
 }
 
-
-
 const PRODUCT_VARIANT_FRAGMENT = `#graphql
   fragment ProductVariant on ProductVariant {
     availableForSale
@@ -325,6 +360,17 @@ const PRODUCT_FRAGMENT = `#graphql
     variants(first: 1) {
       nodes {
         ...ProductVariant
+      }
+    }
+    images(first: 10) {
+      edges {
+        node {
+          id
+          url
+          altText
+          width
+          height
+        }
       }
     }
     seo {

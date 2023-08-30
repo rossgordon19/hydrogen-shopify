@@ -5,7 +5,7 @@ import {json} from '@shopify/remix-oxygen';
 import {CartMain} from '~/components/Cart';
 
 export const meta = () => {
-  return [{title: `Hydrogen | Cart`}];
+  return [{title: `Wishful Thinking | Cart`}];
 };
 
 export async function action({request, context}) {

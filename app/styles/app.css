@@ -511,3 +511,48 @@ aside li {
 .account-logout {
   display: inline-block;
 }
+
+/*
+* --------------------------------------------------
+* routes/Products
+* --------------------------------------------------
+*/
+.product-gallery {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.main-image {
+  width: 100%;
+  max-width: 600px;
+}
+
+.thumbnails {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.thumbnail {
+  flex: 1;
+  min-width: calc(25% - 10px); /* 4 thumbnails per row, 10px is the gap */
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+/* For smaller screens, you can adjust the min-width */
+@media (max-width: 768px) {
+  .thumbnail {
+    min-width: calc(33.33% - 10px); /* 3 thumbnails per row */
+  }
+}
+
+@media (max-width: 480px) {
+  .thumbnail {
+    min-width: calc(50% - 10px); /* 2 thumbnails per row */
+  }
+}
