@@ -24,9 +24,9 @@ export default function Homepage() {
   return (
     <div className="home">
       <Hero />
+      <RecommendedProducts products={data.recommendedProducts} />
       <VideoComponent />
       <Welcome />
-      <RecommendedProducts products={data.recommendedProducts} />
     </div>
   );
 }
